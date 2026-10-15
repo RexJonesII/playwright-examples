@@ -2,6 +2,15 @@
 
 Runnable Playwright + TypeScript examples from my content.
 
+**Author:** Rex Jones II
+**Test application:** https://ui.rexjones2.com (my practice site for test automation)
+
+<!-- TODO: add more links later.
+     Website: https://rexjones2.com
+     LinkedIn / YouTube / X / GitHub: fill in when ready. -->
+
+## How this repo is organized
+
 Code is filed by subject, not by platform. Anything tied to a Playwright
 release lives under `releases/`, and every platform that covers it (LinkedIn,
 YouTube, blog) links to the same folder. One source of truth, no duplicates.
@@ -10,8 +19,8 @@ YouTube, blog) links to the same folder. One source of truth, no duplicates.
 - `blog/`. Blog-post code not tied to a release.
 - `youtube/`. Standalone video code not tied to a release.
 
-Every spec file has a header comment with its source, date, and a link back
-to the post or video.
+Every spec file has a header comment with its author, date, and the test
+application it runs against.
 
 ## Run it
 
@@ -35,5 +44,3 @@ npm run report           # open the last HTML report
 | Release | Topic | File |
 | --- | --- | --- |
 | 1.64 | locator.within() (before, after, and a reorder-stable version) | [releases/1.64/locator-within.spec.ts](releases/1.64/locator-within.spec.ts) |
-
-Author: Rex Jones II

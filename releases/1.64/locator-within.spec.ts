@@ -1,6 +1,6 @@
 /**
  * Author:   Rex Jones II
- * Date:     2026-10-14
+ * Date:     2026-10-15
  * Walkthrough: https://rexjones2.com
  * Verified: https://ui.rexjones2.com/webtables (no login required)
  *
@@ -12,15 +12,17 @@
 
 import { test, expect } from '@playwright/test';
 
-const EMAILS = ['user1@example.com', 'user2@example.com', 'user3@example.com'];
-
 test('column - before (CSS)', async ({ page }) => {
   await page.goto('https://ui.rexjones2.com/webtables');
 
   // Pre-1.64 (Before within()): drop out of the locator API and lean on a CSS selector.
   const emailColumn = page.locator('tbody tr td:nth-child(4)');
 
-  await expect(emailColumn).toHaveText(EMAILS);
+  await expect(emailColumn).toHaveText([
+    'user1@example.com',
+    'user2@example.com',
+    'user3@example.com',
+  ]);
 });
 
 test('column - after (within)', async ({ page }) => {
@@ -31,7 +33,11 @@ test('column - after (within)', async ({ page }) => {
   const rows = page.getByRole('row');
   const emailColumn = page.getByRole('cell').nth(3).within(rows);
 
-  await expect(emailColumn).toHaveText(EMAILS);
+  await expect(emailColumn).toHaveText([
+    'user1@example.com',
+    'user2@example.com',
+    'user3@example.com',
+  ]);
 });
 
 test('column - stable (survives a reorder)', async ({ page }) => {
@@ -50,5 +56,9 @@ test('column - stable (survives a reorder)', async ({ page }) => {
   const rows = page.getByRole('row');
   const emailColumn = page.getByRole('cell').nth(emailIndex).within(rows);
 
-  await expect(emailColumn).toHaveText(EMAILS);
+  await expect(emailColumn).toHaveText([
+    'user1@example.com',
+    'user2@example.com',
+    'user3@example.com',
+  ]);
 });
