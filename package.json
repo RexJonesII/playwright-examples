@@ -1,0 +1,27 @@
+{
+  "name": "playwright-examples",
+  "version": "1.0.0",
+  "description": "Runnable Playwright examples from Rex Jones II content, organized by source (LinkedIn, YouTube).",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:releases": "playwright test releases",
+    "test:blog": "playwright test blog",
+    "test:youtube": "playwright test youtube",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "test-automation",
+    "examples"
+  ],
+  "author": "Rex Jones II",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
